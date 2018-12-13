@@ -36,6 +36,20 @@
         </div>
     </div>
     {{end}}
+    <div style="text-align:center;">
+        <div class="page">
+        <p style="flex:1">Previous</p></a>
+        <div style="flex:1;display:flex;">
+        {{range $i, $_ := (call $.N 9)}}
+            {{if $i}}
+                <p style="width:19px;" {{if eq $i 1}}class="selected"{{end}}>{{$i}}</p>
+            {{end}}
+        {{end}}
+        </div>
+        <p style="flex:1">Next</p>
+        </div>
+
+    </div>
 </div>
 </body>
 </html>

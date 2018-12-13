@@ -76,3 +76,13 @@ body {
 p.place {
     font-size:0.7em;
 }
+
+.selected{
+    background-color:red;
+    border-radius: 50%;
+    color:white;
+}
+
+.page {
+    display:flex; width:350px;margin:auto;
+}

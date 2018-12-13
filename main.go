@@ -57,6 +57,7 @@ func main() {
 			"posts":   posts[:8],
 			"authors": authorsMap,
 			"ModTwo":  ModTwo,
+			"N":       N,
 		})
 	})
 	router.Static("/css", "templates/css")
@@ -90,4 +91,8 @@ func getJson(url string, target interface{}) error {
 
 func ModTwo(i int) bool {
 	return i%2 == 1
+}
+
+func N(n int) []int {
+	return make([]int, n)
 }
