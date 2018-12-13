@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .title}}</title>
+  <style type="text/css" media="screen">
+        @import url("/css/style.css");
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+    </style>
+    <style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+    </style>
+
+</head>
+<body >
+<div class="container">
+    <h1>MAQE Forums</h1>
+    <h2>Subtitle</h2>
+    <h3>Posts</h3>
+    {{range $i, $p := .posts}}
+    <div class="card" {{if (call $.ModTwo $i)}} style="background-color:#f3f3f3;"{{end}}>
+        <div class = "post-img" style="background-image:url({{.ImageUrl}});" ></div>
+        <div class="post"> 
+            <h3>{{$p.Title}}</h3>
+            <p>{{$p.Body}}</p>
+            <p class="time"><i class="fa fa-clock-o" style="margin-right:5px;"></i>{{$p.DisplayTime}}</p>
+        </div>
+        <div class="author">
+            {{with $a := (index $.authors $p.AuthorId) }}
+            <img src="{{$a.AvatarUrl}}"/>
+                <h3>{{$a.Name}}</h3>
+                <p>{{$a.Role}}</p>
+                <p class="place"><i class="fa   fa-map-marker" aria-hidden="true" style="margin-right:5px;"></i>{{$a.Place}}</p>
+            {{end}}
+        </div>
+    </div>
+    {{end}}
+</div>
+</body>
+</html>
