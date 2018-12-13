@@ -6,7 +6,6 @@ import (
 	"log"
 	"math"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -31,12 +30,6 @@ type Post struct {
 }
 
 func main() {
-
-	port := os.Getenv("PORT")
-
-	if port == "" {
-		log.Fatal("$PORT must be set")
-	}
 
 	var authors []Author
 	authorsMap := map[int]Author{}
@@ -68,7 +61,7 @@ func main() {
 	})
 	router.Static("/css", "templates/css")
 
-	router.Run(":" + port)
+	router.Run(":8080")
 }
 
 func processPosts(posts []Post) {
